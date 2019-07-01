@@ -1,6 +1,7 @@
 from requests import get
 from pattern.web import plaintext
 import sys
+import webbrowser
 
 headers = {
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
@@ -24,6 +25,6 @@ def attack(course):
         webText = plaintext(htmlString)
         if compare in webText:
             print('\n' + word + ' is the coupon code for the course and it is free now')
+            webbrowser.open_new_tab(url)
             sys.exit()  
-
 attack(course=course)
